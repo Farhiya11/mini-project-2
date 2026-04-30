@@ -1,0 +1,103 @@
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+eggs/
+*.egg-info/
+pip-wheel-metadata/
+wheels/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+
+# PyInstaller
+__pycache__/
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Pyre
+.pyre/
+
+# Environments & secrets
+local_settings.py
+credentials.json
+*.pem
+*.key
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Logs and runtime files
+*.log
+logs/
+tmp/
+temp/
+*.out
+
+# Database files
+*.sqlite3
+*.db
+
+# Notebook checkpoints
+.ipynb_checkpoints
+
+# Build artifacts (C extensions)
+*.so
+*.pyd
+*.dll
+
+# Static / generated assets
+dist/
+build/
+assets/
+*.cache
+
+# Simulator-specific outputs (captures, traces, results)
+captures/
+pcap/
+*.pcap
+*.pcapng
+traces/
+# results/      # restore after tests
+output/
+sim_state/
+*.trace
+*.simstate
+
+# Experimental or large data files
+data/
+datasets/
+*.h5
+*.npy  
