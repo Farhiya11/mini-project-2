@@ -40,7 +40,9 @@ mini-project-2/
 │   │   │   ├── test_case_2/
 │   │   │   └── test_case_3/
 │   │   └── heavy/
-│   │       └── test_case_1/
+│   │   │   └── test_case_1/
+│   │   │   ├── test_case_2/
+│   │   │   └── test_case_3/
 │   └── provided/
 │       ├── test_case_1/
 │       │   ├── README.txt
@@ -61,11 +63,9 @@ mini-project-2/
 
 
 ## Assumptions and important conventions
-1. `size` is in bytes. Link bandwidth is in Mbps, which equals bits per microsecond. The transmission time is:
+1. `size` is in bytes. Link bandwidth is in Mbps, which equals bits per microsecond. The transmission time is: 
+$$ C\_us = (size\_bytes * 8) / bandwidth\_mbps $$
 
-   ```text
-   C_us = (size_bytes * 8) / bandwidth_mbps
-   ```
 
 2. Per-link `bandwidth_mbps` overrides are supported. If a link omits `bandwidth_mbps`, the simulator uses topology-level `default_bandwidth_mbps`. You may intentionally force a single bandwidth with `--force-bandwidth-mbps`.
 
