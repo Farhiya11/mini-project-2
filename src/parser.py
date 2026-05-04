@@ -1,6 +1,9 @@
+import json
+import os
+    
+REQUIRED_FILES = ("streams.json", "topology.json", "routes.json")
+
 def load_testcase(case_dir):
-    import json
-    import os
 
     with open(os.path.join(case_dir, "streams.json")) as f:
         streams = json.load(f)["streams"]
@@ -14,31 +17,21 @@ def load_testcase(case_dir):
     return streams, topology, routes
 
 
-def _find_testcases(root_dir, prefix=None):
-    import os
-
-    if not os.path.isdir(root_dir):
-        return []
-
-    case_names = sorted(
-        d for d in os.listdir(root_dir)
-        if os.path.isdir(os.path.join(root_dir, d)) and d.startswith("test_case")
+def is_testcase_dir(path):
+    return (
+        os.path.isdir(path)
+        and all(os.path.isfile(os.path.join(path, name)) for name in REQUIRED_FILES)
     )
-    if prefix:
-        return [
-            (os.path.join(root_dir, name), f"{prefix}/{name}")
-            for name in case_names
-        ]
-    return [(os.path.join(root_dir, name), name) for name in case_names]
 
 
 def load_all_testcases(base_path):
-    import os
+    
+    testcases_root = os.path.join(base_path, "test_cases")
+    testcases = {}
 
-    examples_dir = os.path.join(base_path, "examples")
-    case_paths = []
-    case_paths.extend(_find_testcases(examples_dir, "examples"))
-    case_paths.extend(_find_testcases(os.path.join(examples_dir, "examples_simulator", "generated", "baseline"), "baseline"))
-    case_paths.extend(_find_testcases(os.path.join(examples_dir, "examples_simulator", "generated", "heavy"), "heavy"))
+    for root, dirs, files in os.walk(testcases_root):
+        if is_testcase_dir(root):
+            case_name = os.path.relpath(root, testcases_root)
+            testcases[case_name] = load_testcase(root)
 
-    return {name: load_testcase(path) for path, name in case_paths}
+    return dict(sorted(testcases.items()))
