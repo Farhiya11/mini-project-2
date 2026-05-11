@@ -1,0 +1,7 @@
+link_id,source,source_port,destination,bandwidth_mbps,utilization_busy_fraction,tx_pcp2,tx_pcp1,tx_pcp0,max_q_pcp2,max_q_pcp1,max_q_pcp0,final_credit_bits_pcp2,final_credit_bits_pcp1
+Link0,SW0,2,SW1,1000.0,0.0,0,0,0,0,0,0,0.0,0.0
+Link1,SW1,2,SW0,1000.0,0.0,0,0,0,0,0,0,0.0,0.0
+Link2,SW0,6,ES0,100.0,0.29556240000000084,152,152,101,1,1,1,0.0,0.0
+Link3,ES0,0,SW0,100.0,0.29556240000000084,152,152,101,2,2,1,0.0,0.0
+Link4,SW0,7,ES1,100.0,0.29556240000000084,152,152,101,1,1,1,0.0,0.0
+Link5,ES1,0,SW0,100.0,0.29556240000000084,152,152,101,2,2,1,0.0,0.0
